@@ -1,5 +1,5 @@
 ## https://github.com/buwyse/ProgrammingAssignment2.git
-## 1st commit SHA-1 hash identifier: 
+## SHA-1 hash identifier: 
 ## Cache create and invert matrices to reduce processor usage. 
 ## Assumption is that supplied matrix is always invertible.
 
@@ -7,9 +7,11 @@
 ## This function creates a special "matrix" object that can cache its inverse.
 
 makeCacheMatrix <- function(x = matrix()) {
+    ##initialize the inverse matrix variable as null
     xinv <- NULL
+    ##create a vectorized object to set, get, set inverse, and get inverse matrices
     set <- function (y) {
-        x <<- y
+        y <<- x
         xinv <<- NULL
     }
     get <- function() x
@@ -27,7 +29,7 @@ cacheSolve <- function(x, ...) {
     xinv <- x$getinv()
     z <- x$get()
     if(!is.null(xinv)){
-        message("retrieving a cached matrix")
+        message("retrieving the cached matrix")
         return(xinv)   
     }
     xinv <- solve(z)
